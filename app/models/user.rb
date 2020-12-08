@@ -1,10 +1,12 @@
 class User < ApplicationRecord
     attr_reader :password
+    serialize :preferences
     validates :email, :password_digest, :session_token, presence: true
     validates :email, uniqueness: true
     validates :email, format: { with: URI::MailTo::EMAIL_REGEXP } 
     validates :password, length: { minimum: 6 }, allow_nil: true
     before_validation :ensure_session_token
+    belongs_to :group, optional: true
 
     def password=(password) 
         @password = password

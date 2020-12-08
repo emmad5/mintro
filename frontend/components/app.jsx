@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import LoginFormContainer from './session/LoginFormContainer';
-import SignupFormContainer from './session/SignupFormContainer';
-import ProfileContainer from './profile/ProfileContainer';
+import LoginFormContainer from '../containers/LoginFormContainer';
+import SignupFormContainer from '../containers/SignupFormContainer';
+import ProfileContainer from '../containers/HomepageContainer';
 
 const App = () => (
   <div>

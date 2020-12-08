@@ -23,11 +23,17 @@ class SessionForm extends React.Component {
     console.log(user)
     this.props.processForm(user);
   }
+  
+  renderErrors = () => (
+    this.props.errors.map((error, idx) => (
+      <div key={idx}>{error}</div>
+    ))
+  )
 
   render() {
     return (
-      <div className="login-form-container">
-        <form onSubmit={this.handleSubmit} className="login-form-box">
+      <div>
+        <form onSubmit={this.handleSubmit}>
           Please {this.props.formType} or {this.props.navLink}
           <div className="login-form">
             <br />
@@ -47,6 +53,7 @@ class SessionForm extends React.Component {
               />
             </label>
             <br />
+            {this.props.errors && this.renderErrors()}
             <input className="session-submit" type="submit" value={this.props.formType} />
           </div>
         </form>
