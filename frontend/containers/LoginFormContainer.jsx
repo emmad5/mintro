@@ -2,12 +2,12 @@ import { connect } from 'react-redux';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { login, clearErrors } from '../actions/actions';
-import LoginForm from '../components/Session/LoginForm';
+import LoginForm from '../components/Session/SessionForm';
 
 const mapStateToProps = ({ session, entities: { users }, errors }) => {
   return {
-    formType: 'login',
-    navLink: <Link to="/signup">sign up instead</Link>,
+    formType: 'Log In',
+    navLink: <Link className="switch-session" to="/signup">sign up instead</Link>,
     errors: errors
   };
 };

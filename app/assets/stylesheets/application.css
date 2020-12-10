@@ -13,3 +13,42 @@
  *= require_tree .
  *= require_self
  */
+.welcome-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 54px;
+  padding: 24px;
+}
+
+.pt-24 {
+  padding-top: 24px;
+}
+
+.pa-24 {
+  padding: 24px;
+}
+
+.bordered {
+  border: 1px solid lightgray;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.space-around {
+  justify-content: space-around;
+}

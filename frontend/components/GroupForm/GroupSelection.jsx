@@ -15,11 +15,12 @@ class GroupSelection extends React.Component {
     })
   }
 
+
   renderGroups = () => {
     const { groups } = this.state
     const groupsArray = []
     for (const id in groups) {
-      const element = <button key={id} onClick={() => console.log(id)}>
+      const element = <button className="group-button" key={id} onClick={() => this.addGroupToUser(id)}>
       <div>name:{groups[id].name}</div>
       <div>professor: { groups[id].professor} </div>
       </button>
@@ -27,15 +28,23 @@ class GroupSelection extends React.Component {
     }
     return groupsArray
   }
-  
+
+  addGroupToUser = (groupId) => {
+    const user = { id: this.props.currentUser.id, group_id: groupId }
+    this.props.updateUser(user)
+  }
 
   render() {
     return (
-      <div>
-        {this.renderGroups()}
-        group selection
-        or
-        <GroupForm createGroup={this.props.createGroup} />
+      <div className="flex space-around group-selection">
+        <div className="">
+          <div className="pa-24 bordered">Join a Group</div>
+          <div className="pa-24 bordered">{this.renderGroups()}</div>
+        </div>
+        <div className="">
+          <div className="pa-24 bordered">Create a Group</div>
+          <div className="pa-24 bordered"><GroupForm createGroup={this.props.createGroup} /></div>
+        </div>
       </div>
     )
   }

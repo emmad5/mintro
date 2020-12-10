@@ -7,7 +7,7 @@ import ProfileContainer from '../containers/HomepageContainer';
 
 const App = () => (
   <div>
-    <h1>Welcome to Mintro</h1>
+    <h1 className="welcome-header">Welcome to Mintro</h1>
     <Switch>
       <AuthRoute path="/login" component={LoginFormContainer} />
       <AuthRoute path="/signup" component={SignupFormContainer} />

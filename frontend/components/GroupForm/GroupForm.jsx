@@ -27,7 +27,6 @@ class GroupForm extends React.Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <div>
-            Create a new group!
             <br />
             <label>Name:
               <input type="text"

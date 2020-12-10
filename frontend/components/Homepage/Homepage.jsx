@@ -3,9 +3,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import UserForm from "../UserForm/UserForm"
 import GroupSelection from "../GroupForm/GroupSelection"
+import Profile from "../Profile/Profile"
 
 const Homepage = ({ currentUser, logout, updateUser, createGroup, groups }) => {
-  console.log(currentUser, updateUser)
   const personalProfile = () => {
   if (!currentUser.group_id) {
     return <GroupSelection currentUser={currentUser} updateUser={updateUser} createGroup={createGroup}/>
@@ -16,14 +16,14 @@ const Homepage = ({ currentUser, logout, updateUser, createGroup, groups }) => {
     </div>
   } else  {
     return <div>
-      profile
+      <Profile currentUser={currentUser} />
     </div>
   }
 }
 
   return (
     <div>
-      <h2>Hi, {currentUser.name || currentUser.email}!</h2>
+      <h2 className="">Hi, {currentUser.name || currentUser.email}!</h2>
       {personalProfile()}
       <button onClick={logout}>Log Out</button>
     </div>

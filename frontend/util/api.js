@@ -33,6 +33,23 @@ export const fetchGroups = () => {
   })
 }
 
+export const fetchUsers = (group_id) => {
+  return new Promise((resolve, reject) => {
+    return fetch(`/api/groups/${group_id}/users`, {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+    })
+      .then(response => {
+        if (response.ok) {
+          return resolve(response.clone().json())
+        }
+        response.json().then(data => {
+          return reject(data)
+        })
+      })
+  })
+}
+
 export const createGroup = (group) => {
   return new Promise((resolve, reject) => {
     return fetch('/api/groups', {

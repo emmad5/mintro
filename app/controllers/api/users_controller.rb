@@ -12,7 +12,7 @@ class Api::UsersController < ApplicationController
     end
 
     def index
-        @users = User.all
+        @users = User.where(group_id: params[:group_id])
         render 'api/users/index'
     end
 
@@ -27,6 +27,6 @@ class Api::UsersController < ApplicationController
     end
 
     def user_params
-        params.require(:user).permit(:email, :password, :name, :linked_in, :birthdate)
+        params.require(:user).permit!
     end
 end
