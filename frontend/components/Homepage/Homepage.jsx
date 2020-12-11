@@ -23,9 +23,8 @@ const Homepage = ({ currentUser, logout, updateUser, createGroup, groups }) => {
 
   return (
     <div>
-      <h2 className="">Hi, {currentUser.name || currentUser.email}!</h2>
       {personalProfile()}
-      <button onClick={logout}>Log Out</button>
+      <div className="flex justify-end"><button className="logout" onClick={logout}>Log Out</button></div>
     </div>
   )
 };

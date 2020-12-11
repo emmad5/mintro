@@ -26,23 +26,28 @@ class GroupForm extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <div>
-            <br />
-            <label>Name:
-              <input type="text"
+          <div className="flex flex-column">
+            <div className="flex flex-column align-center pt-24">
+              <div>Class Number and Section</div>
+              <input 
+                className="group-form-input"
+                type="text"
                 value={this.state.name}
                 onChange={this.update('name')}
               />
-            </label>
-            <br />
-            <label>Professor:
-              <input type="text"
+            </div>
+            <div className="flex flex-column align-center pt-24">
+              <div>Professor Last Name</div>
+              <input
+                className="group-form-input"
+                type="text"
                 value={this.state.professor}
                 onChange={this.update('professor')}
               />
-            </label>
-            <br />
-            <input type="submit" value="Submit" />
+            </div>
+             <div className="flex justify-center">
+              <input className="group-button" type="submit" value="Submit" />
+            </div>
           </div>
         </form>
       </div>

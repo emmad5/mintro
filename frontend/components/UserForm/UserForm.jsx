@@ -118,7 +118,7 @@ class UserForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="user-form">
         <form onSubmit={this.handleSubmit}>
           <div>
             1. Basic Info

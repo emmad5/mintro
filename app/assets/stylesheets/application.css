@@ -29,6 +29,10 @@
   padding: 24px;
 }
 
+.pa-32 {
+  padding: 24px;
+}
+
 .bordered {
   border: 1px solid lightgray;
 }
@@ -45,10 +49,18 @@
   justify-content: center;
 }
 
+.justify-end {
+  justify-content: flex-end;
+}
+
 .align-center {
   align-items: center;
 }
 
 .space-around {
   justify-content: space-around;
+}
+
+.border-radius-5 {
+  border-radius: 5px;
 }

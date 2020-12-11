@@ -20,9 +20,9 @@ class GroupSelection extends React.Component {
     const { groups } = this.state
     const groupsArray = []
     for (const id in groups) {
-      const element = <button className="group-button" key={id} onClick={() => this.addGroupToUser(id)}>
-      <div>name:{groups[id].name}</div>
-      <div>professor: { groups[id].professor} </div>
+      const element = <button className="group-button min-width-200" key={id} onClick={() => this.addGroupToUser(id)}>
+      <div>Name &nbsp;{groups[id].name}</div>
+      <div>Professor &nbsp;{ groups[id].professor} </div>
       </button>
       groupsArray.push(element)
     }
@@ -37,13 +37,13 @@ class GroupSelection extends React.Component {
   render() {
     return (
       <div className="flex space-around group-selection">
-        <div className="">
-          <div className="pa-24 bordered">Join a Group</div>
-          <div className="pa-24 bordered">{this.renderGroups()}</div>
+        <div className="pa-32 bordered border-radius-5 group-boxes">
+          <div className="">Join a Group</div>
+          <div className="">{this.renderGroups()}</div>
         </div>
-        <div className="">
-          <div className="pa-24 bordered">Create a Group</div>
-          <div className="pa-24 bordered"><GroupForm createGroup={this.props.createGroup} /></div>
+        <div className="pa-32 bordered border-radius-5 group-boxes">
+          <div className="">Create a Group</div>
+          <div className=""><GroupForm createGroup={this.props.createGroup} /></div>
         </div>
       </div>
     )
