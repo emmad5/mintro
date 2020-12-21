@@ -25,7 +25,11 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx", "*"],
     fallback: {
-      fs: false
+      fs: false,
+      dgram: false,
+      net: false,
+      tls: false,
+      child_process: false,
     }
   }
 };
