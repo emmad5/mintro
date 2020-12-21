@@ -2,6 +2,7 @@ const path = require('path');
 
 module.exports = {
   context: __dirname,
+  node: __dirname,
   entry: './frontend/mintro.jsx',
   output: {
     path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
@@ -24,6 +25,5 @@ module.exports = {
   devtool: 'source-map',
   resolve: {
     extensions: [".js", ".jsx", "*"]
-  },
-  node: false
+  }
 };
