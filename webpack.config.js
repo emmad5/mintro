@@ -23,13 +23,6 @@ module.exports = {
   },
   devtool: 'source-map',
   resolve: {
-    extensions: [".js", ".jsx", "*"],
-    fallback: {
-      fs: false,
-      dgram: false,
-      net: false,
-      tls: false,
-      child_process: false,
-    }
+    extensions: [".js", ".jsx", "*"]
   }
 };
