@@ -36,8 +36,8 @@ class Profile extends React.Component {
 
   render() {
     return <div className="profile flex">
-      <div className="user-list bordered pa-24">
-        <div>Class Members:</div>
+      <div className="user-list pa-24">
+        <div className="class-members">Class Members:</div>
         {this.renderUsers()}
       </div>
       {this.renderUserProfile()}

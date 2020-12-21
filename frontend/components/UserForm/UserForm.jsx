@@ -407,7 +407,7 @@ class UserForm extends React.Component {
               </div>
             </div>
             <div className="pa-24">
-              <input type="submit" value="Submit" />
+              <input className="user-form-submit" type="submit" value="Submit" />
             </div>
           </div>
         </form>

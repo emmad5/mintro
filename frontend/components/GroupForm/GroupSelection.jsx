@@ -22,8 +22,7 @@ class GroupSelection extends React.Component {
     for (const id in groups) {
       const element = <div key={id}>
       <button className="group-button min-width-200" onClick={() => this.setState({ passwordOpen: id })}>
-      <div>Name &nbsp;{groups[id].name}</div>
-      <div>Professor &nbsp;{ groups[id].professor} </div>
+      <div> &nbsp;{groups[id].name} - &nbsp;{ groups[id].professor} </div>
       </button>
         {this.state.passwordOpen === id && 
         <div><input type="password"
@@ -49,11 +48,11 @@ class GroupSelection extends React.Component {
     return (
       <div className="flex space-around group-selection">
         <div className="pa-32 bordered border-radius-5 group-boxes">
-          <div className="">Join a Group</div>
+          <div className="">Join a Group:</div>
           <div className="">{this.renderGroups()}</div>
         </div>
         <div className="pa-32 bordered border-radius-5 group-boxes">
-          <div className="">Create a Group</div>
+          <div className="">Create a Group:</div>
           <div className=""><GroupForm createGroup={this.props.createGroup} /></div>
         </div>
       </div>
