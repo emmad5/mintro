@@ -19,7 +19,6 @@ class GroupForm extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const group = Object.assign({}, this.state);
-    console.log(group)
     this.props.createGroup(group);
   }
 

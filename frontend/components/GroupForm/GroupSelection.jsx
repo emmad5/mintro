@@ -39,7 +39,6 @@ class GroupSelection extends React.Component {
   }
 
   addGroupToUser = (groupId) => {
-    console.log(this.state.passwordInput)
     const user = { id: this.props.currentUser.id, group_id: groupId, group_password: this.state.passwordInput }
     this.props.updateUser(user)
   }

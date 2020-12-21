@@ -1,7 +1,6 @@
 import React from "react"
 
 const AboutMe = (props) => {
-  console.log(props)
   const { birthdate, expertise, name, preferences, phone, share_email, linked_in } = props
   const { about_me, books, eats, movies, pronoun, from } = preferences
   let activities;
@@ -37,33 +36,37 @@ const AboutMe = (props) => {
     {expertise && <div>Industry/Expertise: {expertise}</div>}
     </div>
     <div className="pt-24">
-      <div>Activities and Hobbies:</div>
+      <div className="about-me-header">Activities and Hobbies:</div>
       <div>{activities}</div>
     </div>
     <div className="pt-24">
-      <div>Some more about you</div>
-      {about_me.career && <div><div>What is your dream career?</div><div>{about_me.career}</div></div>}
-      {about_me.talk && <div><div>What can you talk about for hours?</div><div>{about_me.talk}</div></div>}
-      {about_me.skills && <div><div>What skills are you working to improve on?</div><div>{about_me.skills}</div></div>}
-      {about_me.others && <div><div>What do you want others to know about you?</div><div>{about_me.others}</div></div>}
+      <div className="about-me-header">Some more about you</div>
+      {about_me.career && <div><div className="about-me-subheader">What is your dream career?</div>
+      <div className="pb-12">{about_me.career}</div></div>}
+      {about_me.talk && <div><div className="about-me-subheader">What can you talk about for hours?</div>
+      <div className="pb-12">{about_me.talk}</div></div>}
+      {about_me.skills && <div><div className="about-me-subheader">What skills are you working to improve on?</div>
+      <div className="pb-12">{about_me.skills}</div></div>}
+      {about_me.others && <div><div className="about-me-subheader">What do you want others to know about you?</div>
+      <div className="pb-12">{about_me.others}</div></div>}
     </div>
     <div className="pt-24">
-      Three “Top 5’s” (conversation starters)
+     <div className="about-me-header">Three “Top 5’s” (conversation starters)</div>
       <div className="flex">
       <div className="top-5">
-        <div>Movies/TV Shows</div>
+        <div className="about-me-subheader">Movies/TV Shows</div>
         <div>
           {moviesTop5}
         </div>
       </div>
       <div className="top-5" >
-        <div>Books</div>
+        <div className="about-me-subheader">Books</div>
         <div>
           {booksTop5}
         </div>
       </div>
       <div className="top-5">
-        <div>Eats</div>
+        <div className="about-me-subheader">Eats</div>
         <div>
           {eatsTop5}
         </div>
@@ -71,10 +74,10 @@ const AboutMe = (props) => {
       </div>
     </div>
     <div className="pt-24">
-    <div>Contact Information:</div>
-      <div>{phone && <a href={`tel:${phone}`}>{phone}</a>}</div>
-      <div>{share_email && <a href={`mailto: ${share_email}`}>{share_email}</a>}</div>
-      <div>{linked_in && <a href={linked_in}>{linked_in}</a>}</div>
+      <div className="about-me-header">Contact Information:</div>
+      <div className="mb-12">{phone && <a href={`tel:${phone}`} >Phone: {phone}</a>}</div>
+      <div className="mb-12">{share_email && <a href={`mailto: ${share_email}`}>Email: {share_email}</a>}</div>
+      <div>{linked_in && <a href={linked_in}>LinkedIn: {linked_in}</a>}</div>
     </div>
   </div>
 }

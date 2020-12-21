@@ -32,7 +32,7 @@
   .about-me {
     color: gray;
     .name {
-      font-size: 24px;
+      font-size: 26px;
       padding-bottom: 12px;
       font-weight: bold;
       font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -41,9 +41,23 @@
     .top-5 {
       padding: 8px;
       margin-right: 8px;
-      width: 150px;
+      width: 170px;
       border: 1px lightgray solid;
       border-radius: 4px;
+    }
+
+    .about-me-header {
+      font-size: 20px;
+      padding-bottom: 12px;
+      font-weight: bold;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;     
+    }
+
+    .about-me-subheader {
+      font-size: 14px;
+      padding-bottom: 8px;
+      font-weight: bold;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;    
     }
   }
 }

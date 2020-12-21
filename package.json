@@ -35,5 +35,9 @@
   "license": "ISC",
   "devDependencies": {
     "webpack-dev-server": "^3.11.0"
+  },
+  "engines": {
+    "node": "12.5.0",
+    "npm": "6.9.0"
   }
 }

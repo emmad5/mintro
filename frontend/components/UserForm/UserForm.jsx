@@ -114,7 +114,6 @@ class UserForm extends React.Component {
     const { id, name, linked_in, birthdate, expertise, phone, activities, about_me, movies, books, eats, share_email, from, pronoun } = this.state
     const preferences = Object.assign({}, { activities, about_me, movies, books, eats, from, pronoun });
     const user = Object.assign({}, { id, name, linked_in, birthdate, expertise, phone, share_email, preferences});
-    console.log(user)
     this.props.updateUser(user);
   }
 
