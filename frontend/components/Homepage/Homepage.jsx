@@ -10,10 +10,7 @@ const Homepage = ({ currentUser, logout, updateUser, createGroup, groups }) => {
   if (!currentUser.group_id) {
     return <GroupSelection currentUser={currentUser} updateUser={updateUser} createGroup={createGroup}/>
   } else if (!currentUser.name) {
-    return <div>
-      <div>Please fill out this form to continue</div>
-      <UserForm currentUser={currentUser} updateUser={updateUser} />
-    </div>
+    return <UserForm currentUser={currentUser} updateUser={updateUser} />
   } else  {
     return <div>
       <Profile currentUser={currentUser} />
@@ -23,8 +20,9 @@ const Homepage = ({ currentUser, logout, updateUser, createGroup, groups }) => {
 
   return (
     <div>
-      {personalProfile()}
       <div className="flex justify-end"><button className="logout" onClick={logout}>Log Out</button></div>
+      <h1 className="welcome-header">Welcome to Mintro</h1>
+      {personalProfile()}
     </div>
   )
 };

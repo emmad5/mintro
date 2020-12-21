@@ -1,5 +1,6 @@
 import React from "react"
 import { fetchUsers } from "../../util/api"
+import AboutMe from "./AboutMe"
 
 class Profile extends React.Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class Profile extends React.Component {
 
   renderUsers = () => (
     this.state.users.map(user => (
-    <div key={user.id} onClick={() => this.setState({ userProfile: user })}>{user.name}</div>
+    <div className={"user-el"} key={user.id} onClick={() => this.setState({ userProfile: user })}>{user.name}</div>
     ))
   )
 
@@ -28,17 +29,17 @@ class Profile extends React.Component {
     const { userProfile } = this.state
     return (
       <div>
-        <div>name: {userProfile.name}</div>
-        <div>email: {userProfile.email}</div>
-        <div>expertise: {userProfile.expertise}</div>
-        <div>phone: {userProfile.phone}</div>
+        <AboutMe {...userProfile}/>
       </div>
     )
   }
 
   render() {
-    return <div>
-      {this.renderUsers()}
+    return <div className="profile flex">
+      <div className="user-list bordered pa-24">
+        <div>Class Members:</div>
+        {this.renderUsers()}
+      </div>
       {this.renderUserProfile()}
     </div>
   }

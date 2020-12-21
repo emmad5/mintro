@@ -18,11 +18,19 @@
   flex-direction: column;
   align-items: center;
   font-size: 54px;
-  padding: 24px;
+  padding: 12px 12px 32px 12px;
 }
 
 .pt-24 {
   padding-top: 24px;
+}
+
+.pb-24 {
+  padding-bottom: 24px;
+}
+
+.pr-8 {
+  padding-right: 8px;
 }
 
 .pa-24 {
@@ -61,6 +69,14 @@
   justify-content: space-around;
 }
 
+.space-between {
+  justify-content: space-between;
+}
+
 .border-radius-5 {
   border-radius: 5px;
+}
+
+.font-18 {
+  font-size: 18px;
 }

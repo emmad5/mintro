@@ -19,7 +19,15 @@ class Api::UsersController < ApplicationController
     def update
         @user = User.find_by(id: params[:id])
         render json: ['unable to find user'] unless @user
-        if @user.update(user_params)
+        group = Group.find_by(id: user_group_params[:group_id])
+        if (group)
+            if (group.is_password?(params[:user][:group_password]))
+                @user.update(user_group_params)
+                render :show
+            else
+                render json: ['unable to find group'], status: 422
+            end
+        elsif @user.update(user_params)
             render :show
         else
             render json: @user.errors.full_messages, status: 422
@@ -28,5 +36,9 @@ class Api::UsersController < ApplicationController
 
     def user_params
         params.require(:user).permit!
+    end
+
+    def user_group_params
+        params.require(:user).permit(:group_id)
     end
 end

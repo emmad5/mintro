@@ -29,6 +29,6 @@ class Api::GroupsController < ApplicationController
     end
 
     def group_params
-        params.require(:group).permit(:name, :professor)
+        params.require(:group).permit(:name, :professor, :password)
     end
 end

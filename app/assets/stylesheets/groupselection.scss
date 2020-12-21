@@ -1,4 +1,6 @@
 .group-selection {
+  margin-right: 100px;
+  margin-left: 100px;
   .group-button {
     border: 1px grey solid;
     border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
@@ -21,7 +23,7 @@
   }
 
   .group-boxes {
-    width: 300px;
+    width: 400px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -32,5 +34,17 @@
     margin-top: 8px;
     padding: 4px;
     border-radius: 4px;
+  }
+
+  .submit {
+    background-color: #5BC5A7;
+    margin-top: 8px;
+    border: 1px grey solid;
+    padding: 5px 10px 5px 10px;
+    color: white;
+    text-shadow: 0 -1px 0 #318970;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 1px 2px rgba(0,0,0,0.05);
+    border-radius: 4px;
+    border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
   }
 }

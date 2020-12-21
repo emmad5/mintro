@@ -5,7 +5,8 @@ class GroupForm extends React.Component {
     super(props);
     this.state = {
       name: '',
-      professor: ''
+      professor: '',
+      password: ''
     };
   }
 
@@ -45,8 +46,17 @@ class GroupForm extends React.Component {
                 onChange={this.update('professor')}
               />
             </div>
+            <div className="flex flex-column align-center pt-24">
+              <div>Password</div>
+              <input
+                className="group-form-input"
+                type="password"
+                value={this.state.password}
+                onChange={this.update('password')}
+              />
+            </div>
              <div className="flex justify-center">
-              <input className="group-button" type="submit" value="Submit" />
+              <input className="group-button" type="submit" value="Create Group" />
             </div>
           </div>
         </form>
