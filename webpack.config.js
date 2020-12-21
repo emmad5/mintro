@@ -2,10 +2,10 @@ const path = require('path');
 
 module.exports = {
   context: __dirname,
-  node: {
-    global: false,
-    __filename: false,
-    __dirname: false,
+  resolve: {
+    fallback: {
+      fs: false
+    }
   },
   entry: './frontend/mintro.jsx',
   output: {
