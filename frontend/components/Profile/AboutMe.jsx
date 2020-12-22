@@ -22,7 +22,7 @@ const AboutMe = (props) => {
 
   let formattedBirthday;
   if (birthdate) {
-    const date = new Date(birthdate)
+    const date = new Date(birthdate.split('-').slice(1).join('-'))
     const format = date.toLocaleString('default', { month: 'long', day: 'numeric'  });
     formattedBirthday = <span>{format}</span>
   }

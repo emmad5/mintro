@@ -19,9 +19,11 @@ class Profile extends React.Component {
   }
 
   renderUsers = () => (
-    this.state.users.map(user => (
-    <div className={"user-el"} key={user.id} onClick={() => this.setState({ userProfile: user })}>{user.name}</div>
-    ))
+    this.state.users.map(user => {
+      if (user.name) {
+        return <div className={"user-el"} key={user.id} onClick={() => this.setState({ userProfile: user })}>{user.name}</div>
+      }
+    })
   )
 
   renderUserProfile = () => {
