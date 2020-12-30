@@ -4,6 +4,7 @@ class UserForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      addQ: 0,
       id: props.currentUser.id,
       name: '',
       linked_in: '',
@@ -12,6 +13,7 @@ class UserForm extends React.Component {
       birthdate: '',
       expertise: '',
       phone: '',
+      personal: '',
       activities: {
         '1': '',
         '2': '',
@@ -21,14 +23,12 @@ class UserForm extends React.Component {
         '6': '',
         '7': '',
         '8': '',
-        '9': '',
-        '10': '',
       },
       about_me: {
         'career': '',
-        'talk': '',
-        'skills': '',
-        'others': ''
+        'change': '',
+        'dinner': '',
+        'pivotal': ''
       },
       movies: {
         '1': '',
@@ -93,6 +93,12 @@ class UserForm extends React.Component {
     }
   }
 
+  updatePersonal(e) {
+    const { personal } = this.state
+    personal = (e.currentTarget.value)
+    this.setState({ personal })
+  }
+
   updateTopFive(field) {
     return (e) => {
       const { top_fives } = this.state
@@ -111,9 +117,10 @@ class UserForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { id, name, linked_in, birthdate, expertise, phone, activities, about_me, movies, books, eats, share_email, from, pronoun } = this.state
-    const preferences = Object.assign({}, { activities, about_me, movies, books, eats, from, pronoun });
-    const user = Object.assign({}, { id, name, linked_in, birthdate, expertise, phone, share_email, preferences});
+    const { id, name, linked_in, birthdate, expertise, phone, activities, about_me, movies, books, eats, share_email, from, pronoun, personal } = this.state
+    const birthdateDate = new Date(birthdate)
+    const preferences = Object.assign({}, { activities, about_me, movies, books, eats, from, pronoun, personal });
+    const user = Object.assign({}, { id, name, linked_in, birthdate: birthdateDate, expertise, phone, share_email, preferences});
     this.props.updateUser(user);
   }
 
@@ -143,7 +150,7 @@ class UserForm extends React.Component {
               </div>
               <div>
                 <label>Birthday (mm/dd):
-                  <input type="date"
+                  <input type="text"
                     value={this.state.birthdate}
                     onChange={this.update('birthdate')}
                   />
@@ -167,7 +174,7 @@ class UserForm extends React.Component {
               </div>
             </div>
             <div className="section pa-24">
-              <label>2. List Ten activities you enjoy
+              <label><div className="pb-12">2. List up to eight activities you enjoy</div>
               <div className="flex">
               <div className="pr-8">a</div>
               <input type="text"
@@ -224,28 +231,14 @@ class UserForm extends React.Component {
                 onChange={this.updateActivities('8')}
               /> 
               </div>
-              <div className="flex">
-              <div className="pr-8">i</div>
-              <input type="text"
-                value={this.state.activities['9']}
-                onChange={this.updateActivities('9')}
-              /> 
-              </div>
-              <div className="flex">
-              <div className="pr-8">j</div>
-              <input type="text"
-                value={this.state.activities['10']}
-                onChange={this.updateActivities('10')}
-                  />
-                </div>
             </label>
             </div>
-            <div className="pa-24 section">
-              <div>3. Some more about you</div>
+            <div className="pa-24 section more-about-you">
+              <div className="pb-12">3. Some more about you</div>
             <div>
               <label>
               <div>
-                What is your dream career?
+                If someone gave you enough money to start a business – no strings attached – what kind of business would you start and why?
               </div>
               <input type="text"
                 value={this.state.about_me['career']}
@@ -256,130 +249,144 @@ class UserForm extends React.Component {
             <div>
               <label>
               <div>
-                What can you talk about for hours?
+                What is one thing you love about yourself and one thing you wish you could change?
               </div>
               <input type="text"
-                value={this.state.about_me['talk']}
-                onChange={this.updateAboutMe('talk')}
+                value={this.state.about_me['change']}
+                onChange={this.updateAboutMe('change')}
               />
             </label>
             </div>
             <div>
               <label>
               <div>
-                What skills are you working to improve on?
+                If you could invite three people to dinner, living or dead, who would they be? Why?
               </div>
               <input type="text"
-                value={this.state.about_me['skills']}
-                onChange={this.updateAboutMe('skills')}
+                value={this.state.about_me['dinner']}
+                onChange={this.updateAboutMe('dinner')}
               />
             </label>
             </div>
             <div>
-              <label><div>What do you want others to know about you?
+              <label>
+              <div>
+                What was the most pivotal point in your life?
               </div>
               <input type="text"
-                value={this.state.about_me['others']}
-                onChange={this.updateAboutMe('others')}
+                value={this.state.about_me['pivotal']}
+                onChange={this.updateAboutMe('pivotal')}
               />
             </label>
             </div>
+
             </div>
             <div className="pa-24 section">
-            <div>4. Three "Top 5's"</div>
-            a. Movies/TV Shows<div>
-            i<input type="text"
-              value={this.state.movies['1']}
-              onChange={this.updateMovies('1')}
-            />
-              </div>
-              <div>
-              ii<input type="text"
-              value={this.state.movies['2']}
-              onChange={this.updateMovies('2')}
-            />
-              </div>
-              <div>
-             iii <input type="text"
-              value={this.state.movies['3']}
-              onChange={this.updateMovies('3')}
-            />
-              </div>
-              <div>
-             iv <input type="text"
-              value={this.state.movies['4']}
-              onChange={this.updateMovies('4')}
-            />
-              </div>
-            <div>
-             v <input type="text"
-              value={this.state.movies['5']}
-              onChange={this.updateMovies('5')}
-            />
-              </div>
-           b. Books<div>
-            i<input type="text"
-              value={this.state.books['1']}
-              onChange={this.updateBooks('1')}
-            />
-              </div>
-              <div>
-             ii<input type="text"
-              value={this.state.books['2']}
-              onChange={this.updateBooks('2')}
-            />
-              </div>
-              <div>
-             iii <input type="text"
-              value={this.state.books['3']}
-              onChange={this.updateBooks('3')}
-            />
-              </div>
-              <div>
-             iv <input type="text"
-              value={this.state.books['4']}
-              onChange={this.updateBooks('4')}
-            />
-              </div>
-              <div>
-            v<input type="text"
-              value={this.state.books['5']}
-              onChange={this.updateBooks('5')}
-            />
-              </div>
-           b. Eats<div>
-            i<input type="text"
+              <div className="pb-12">4. Three "Top 5's"</div>
+            <div className="flex">
+                <div className="top-5">
+                  a. TV Shows or Movies
+              <div className="flex flex-end">
+                    <div className="top-5-input">i</div><input type="text"
+                      value={this.state.movies['1']}
+                      onChange={this.updateMovies('1')}
+                    />
+                  </div>
+                  <div className="flex flex-end">
+                    <div className="top-5-input">ii</div><input type="text"
+                      value={this.state.movies['2']}
+                      onChange={this.updateMovies('2')}
+                    />
+                  </div>
+                  <div className="flex flex-end">
+                    <div className="top-5-input">iii </div><input type="text"
+                      value={this.state.movies['3']}
+                      onChange={this.updateMovies('3')}
+                    />
+                  </div>
+                  <div className="flex flex-end">
+                    <div className="top-5-input">iv </div><input type="text"
+                      value={this.state.movies['4']}
+                      onChange={this.updateMovies('4')}
+                    />
+                  </div>
+                  <div className="flex flex-end">
+                    <div className="top-5-input">v</div><input type="text"
+                      value={this.state.movies['5']}
+                      onChange={this.updateMovies('5')}
+                    />
+                  </div>
+                </div>
+                <div className="top-5">
+                  b. Books
+              <div className="flex flex-end">
+                    <div className="top-5-input">i</div><input type="text"
+                      value={this.state.books['1']}
+                      onChange={this.updateBooks('1')}
+                    />
+                  </div>
+                  <div className="flex flex-end">
+                    <div className="top-5-input">ii</div><input type="text"
+                      value={this.state.books['2']}
+                      onChange={this.updateBooks('2')}
+                    />
+                  </div>
+                  <div className="flex flex-end">
+                    <div className="top-5-input">iii </div><input type="text"
+                      value={this.state.books['3']}
+                      onChange={this.updateBooks('3')}
+                    />
+                  </div>
+                  <div className="flex flex-end">
+                    <div className="top-5-input">iv </div><input type="text"
+                      value={this.state.books['4']}
+                      onChange={this.updateBooks('4')}
+                    />
+                  </div>
+                  <div className="flex flex-end">
+                    <div className="top-5-input">v</div><input type="text"
+                      value={this.state.books['5']}
+                      onChange={this.updateBooks('5')}
+                    />
+                  </div>
+                </div>
+                <div className="top-5">
+                  b. Food
+              <div className="flex flex-end">
+              <div className="top-5-input">i</div><input type="text"
               value={this.state.eats['1']}
               onChange={this.updateEats('1')}
             />
               </div>
-              <div>
-             ii<input type="text"
+              <div className="flex flex-end">
+              <div className="top-5-input">ii</div><input type="text"
               value={this.state.eats['2']}
               onChange={this.updateEats('2')}
             />
               </div>
-              <div>
-             iii <input type="text"
+              <div className="flex flex-end">
+              <div className="top-5-input">iii </div><input type="text"
               value={this.state.eats['3']}
               onChange={this.updateEats('3')}
             />
               </div>
-              <div>
-             iv <input type="text"
+              <div className="flex flex-end">
+              <div className="top-5-input">iv </div><input type="text"
               value={this.state.eats['4']}
               onChange={this.updateEats('4')}
             />
               </div>
-            <div>
-            v<input type="text"
+              <div className="flex flex-end">
+              <div className="top-5-input">v</div><input type="text"
               value={this.state.eats['5']}
               onChange={this.updateEats('5')}
             />
             </div>
+                </div>
+              </div>
             </div>
             <div className="pa-24 section">
-            <div>5. Where can your classmates reach you? (optional)</div>
+            <div className="pb-12">5. Where can your classmates reach you? (optional)</div>
             <div>
               <label>Phone:
               <input type="text"
@@ -401,6 +408,14 @@ class UserForm extends React.Component {
               <input type="text"
                 value={this.state.linked_in}
                 onChange={this.update('linked_in')}
+              />
+            </label>
+              </div>
+            <div>
+              <label>Other (Instagram/Facebook/Personal Website):
+              <input type="text"
+                value={this.state.personal}
+                onChange={this.updatePersonal}
               />
             </label>
               </div>

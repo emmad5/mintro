@@ -35,7 +35,7 @@ class SessionForm extends React.Component {
         <h1 className="welcome-header">Mintro</h1>
         <h1 className="welcome-subheader">introductions that stick</h1>
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          <div className="sign-up-heading">{this.props.formType}</div>
+          <div className="sign-up-heading">{this.props.header}</div>
           <div className="login-form">
             <div>
               <label>

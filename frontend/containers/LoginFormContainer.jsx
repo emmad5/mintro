@@ -7,6 +7,7 @@ import LoginForm from '../components/Session/SessionForm';
 const mapStateToProps = ({ session, entities: { users }, errors }) => {
   return {
     formType: 'Log In',
+    header: 'Log In',
     navLink: <Link className="switch-session" to="/signup">sign up instead</Link>,
     errors: errors
   };

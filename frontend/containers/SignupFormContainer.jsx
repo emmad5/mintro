@@ -7,6 +7,7 @@ import SignupForm from '../components/Session/SessionForm';
 const mapStateToProps = ({ session, entities: { users }, errors }) => {
   return {
     formType: 'Sign Up',
+    header: 'New to Mintro? Sign up',
     navLink: <Link className="switch-session" to="/login">log in instead</Link>,
     errors: errors
   };

@@ -18,20 +18,21 @@ class Profile extends React.Component {
     })
   }
 
-  renderUsers = () => (
-    this.state.users.map(user => {
+  renderUsers = () => {
+    this.state.users.sort((a, b) => (a.name > b.name) ? 1 : -1)
+    return this.state.users.map(user => {
       if (user.name) {
         return <div className={"user-el"} key={user.id} onClick={() => this.setState({ userProfile: user })}>{user.name}</div>
       }
-    })
-  )
+    }) 
+  }
 
   renderUserProfile = () => {
     if (!this.state.userProfile) return
     const { userProfile } = this.state
     return (
       <div>
-        <AboutMe {...userProfile}/>
+        <AboutMe {...userProfile} currentUser={this.props.currentUser} editMintro={this.props.editMintro}/>
       </div>
     )
   }
