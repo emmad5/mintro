@@ -3,7 +3,10 @@ import React from 'react';
 class UserForm extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props.currentUser)
+    let birthdate = '';
+    if (props.currentUser.birthdate) {
+      birthdate = props.currentUser.birthdate.split('-').slice(1).join('/')
+    }
     this.state = {
       addQ: 0,
       id: props.currentUser.id,
@@ -11,7 +14,7 @@ class UserForm extends React.Component {
       linked_in: props.currentUser.linked_in || '',
       pronoun: props.currentUser.preferences.pronoun || '',
       from: props.currentUser.from || '',
-      birthdate: '',
+      birthdate: birthdate,
       expertise: props.currentUser.expertise || '',
       phone: props.currentUser.phone || '',
       personal: props.currentUser.preferences.personal || '',
