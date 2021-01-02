@@ -126,7 +126,7 @@ class UserForm extends React.Component {
   render() {
     return (
       <div className="user-form flex flex-column align-center">
-        <div className="font-18">Please fill out this form to continue</div>
+        <div className="font-18">Edit your mintro</div>
         <form onSubmit={this.handleSubmit}>
           <div>
             <div className="section pa-24">

@@ -51,7 +51,7 @@ const AboutMe = (props) => {
       <div className="pb-12">{about_me.dinner}</div></div>}
     </div>
     <div className="pt-24">
-     <div className="about-me-header">Three “Top 5’s” (conversation starters)</div>
+      <div className="about-me-header">Three 	&#8220;Top 5’s&#8221;</div>
       <div className="flex">
       <div className="top-5">
         <div className="about-me-subheader">Movies/TV Shows</div>
