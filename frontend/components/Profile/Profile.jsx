@@ -1,6 +1,7 @@
 import React from "react"
 import { fetchUsers } from "../../util/api"
 import AboutMe from "./AboutMe"
+import { Link } from 'react-router-dom';
 
 class Profile extends React.Component {
   constructor(props) {
@@ -38,6 +39,14 @@ class Profile extends React.Component {
   }
 
   render() {
+    if (this.props.displayAddClass) {
+      return (
+        <div className="flex flex-column align-center">
+          <div className="not-available">Sorry that feature is not available yet</div>
+          <div className="go-back" onClick={() => this.props.addAnotherClass(false)}>Go Back</div>
+        </div>
+      )
+    }
     return <div className="profile flex">
       <div className="user-list pa-24">
         <div className="class-members">Class Members:</div>

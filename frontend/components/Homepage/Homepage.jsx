@@ -8,6 +8,7 @@ import Profile from "../Profile/Profile"
 
 const Homepage = ({ currentUser, logout, updateUser, createGroup, groups }) => {
   const [ edit, editMintro ] = useState(false)
+  const [ displayAddClass, addAnotherClass ] = useState(false)
   const personalProfile = () => {
   if (!currentUser.group_id) {
     return <GroupSelection currentUser={currentUser} updateUser={updateUser} createGroup={createGroup}/>
@@ -17,7 +18,8 @@ const Homepage = ({ currentUser, logout, updateUser, createGroup, groups }) => {
     return <UserUpdateForm currentUser={currentUser} updateUser={updateUser} editMintro={editMintro} />
   } else  {
     return <div>
-      <Profile currentUser={currentUser} editMintro={editMintro} />
+      {!displayAddClass && <div className="add-class" onClick={() => addAnotherClass(true)}>Add Another Class</div>}
+      <Profile currentUser={currentUser} editMintro={editMintro} displayAddClass={displayAddClass} addAnotherClass={addAnotherClass} />
     </div>
   }
 }

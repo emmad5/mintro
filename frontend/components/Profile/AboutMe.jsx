@@ -1,7 +1,7 @@
 import React from "react"
 
 const AboutMe = (props) => {
-  const { birthdate, expertise, name, preferences, phone, share_email, linked_in, id, currentUser, editMintro } = props
+  const { birthdate, name, preferences, phone, share_email, linked_in, id, currentUser, editMintro } = props
   const { about_me, books, eats, movies, pronoun, from, personal } = preferences
   let activities;
   let booksTop5;
@@ -33,7 +33,6 @@ const AboutMe = (props) => {
       {formattedBirthday && <div>Birthday: {formattedBirthday}</div>}
       {pronoun && <div>Pronouns: {pronoun}</div>}
       {from && <div>Where are you from: {from}</div>}
-    {expertise && <div>Industry/Expertise: {expertise}</div>}
     </div>
     <div className="pt-24">
       <div className="about-me-header">Activities and Hobbies:</div>
@@ -41,14 +40,14 @@ const AboutMe = (props) => {
     </div>
     <div className="pt-24">
       <div className="about-me-header">Some more about you</div>
+      {about_me.aspiration && <div><div className="about-me-subheader">What is your biggest aspiration?</div>
+      <div className="pb-12">{about_me.aspiration}</div></div>}
+      {about_me.proud && <div><div className="about-me-subheader">What are you proud of that you haven’t told many people about?</div>
+      <div className="pb-12">{about_me.proud}</div></div>}
       {about_me.career && <div><div className="about-me-subheader">If someone gave you enough money to start a business – no strings attached – what kind of business would you start and why?</div>
       <div className="pb-12">{about_me.career}</div></div>}
-      {about_me.change && <div><div className="about-me-subheader">What is one thing you love about yourself and one thing you wish you could change?</div>
-      <div className="pb-12">{about_me.change}</div></div>}
-      {about_me.pivotal && <div><div className="about-me-subheader">What was the most pivotal point in your life?</div>
-      <div className="pb-12">{about_me.pivotal}</div></div>}
-      {about_me.dinner && <div><div className="about-me-subheader">If you could invite three people to dinner, living or dead, who would they be? Why?</div>
-      <div className="pb-12">{about_me.dinner}</div></div>}
+      {about_me.classmates && <div><div className="about-me-subheader">What are you interested in learning about your classmates this semester?</div>
+      <div className="pb-12">{about_me.classmates}</div></div>}
     </div>
     <div className="pt-24">
       <div className="about-me-header">Three 	&#8220;Top 5’s&#8221;</div>
@@ -60,7 +59,7 @@ const AboutMe = (props) => {
         </div>
       </div>
       <div className="top-5" >
-        <div className="about-me-subheader">Books</div>
+        <div className="about-me-subheader">Books or Games</div>
         <div>
           {booksTop5}
         </div>
@@ -77,7 +76,7 @@ const AboutMe = (props) => {
       <div className="about-me-header">Contact Information:</div>
       <div className="mb-12">{phone && <a href={`tel:${phone}`} >Phone: {phone}</a>}</div>
       <div className="mb-12">{share_email && <a href={`mailto: ${share_email}`}>Email: {share_email}</a>}</div>
-      <div className="mb-12">{linked_in && <a href={linked_in}>LinkedIn: {linked_in}</a>}</div>
+      <div className="mb-12">{linked_in && <a href={linked_in} target="_blank">LinkedIn: {linked_in}</a>}</div>
       <div>{personal && <a href={personal}>Personal: {personal}</a>}</div>
     </div>
     {currentUser.id === id && <div className="edit-mintro" onClick={() => editMintro(true)}>Edit My Mintro</div>}

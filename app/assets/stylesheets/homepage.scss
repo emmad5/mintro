@@ -18,3 +18,15 @@
     margin-right: 30px;
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 1px 2px rgba(0,0,0,0.05);
 }
+
+.add-class {
+    margin-left: 24px;
+    border: 1px solid lightgray;
+    width: fit-content;
+    padding: 8px;
+    border-radius: 6px;
+    color: gray;
+    font-size: 14px;
+    background: #d3d3d336;
+    cursor: pointer;
+}

@@ -15,7 +15,6 @@ class UserForm extends React.Component {
       pronoun: props.currentUser.preferences.pronoun || '',
       from: props.currentUser.from || '',
       birthdate: birthdate,
-      expertise: props.currentUser.expertise || '',
       phone: props.currentUser.phone || '',
       personal: props.currentUser.preferences.personal || '',
       activities: {
@@ -30,9 +29,9 @@ class UserForm extends React.Component {
       },
       about_me: {
         'career': props.currentUser.preferences.about_me['career'] || '',
-        'change': props.currentUser.preferences.about_me['change'] || '',
-        'dinner': props.currentUser.preferences.about_me['dinner'] || '',
-        'pivotal': props.currentUser.preferences.about_me['pivotal'] || '',
+        'change': props.currentUser.preferences.about_me['aspiration'] || '',
+        'dinner': props.currentUser.preferences.about_me['proud'] || '',
+        'pivotal': props.currentUser.preferences.about_me['classmates'] || '',
       },
       movies: {
         '1': props.currentUser.preferences.movies[1] || '',
@@ -115,10 +114,10 @@ class UserForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { id, name, linked_in, birthdate, expertise, phone, activities, about_me, movies, books, eats, share_email, from, pronoun, personal } = this.state
+    const { id, name, linked_in, birthdate, phone, activities, about_me, movies, books, eats, share_email, from, pronoun, personal } = this.state
     const birthdateDate = new Date(birthdate)
     const preferences = Object.assign({}, { activities, about_me, movies, books, eats, from, pronoun, personal });
-    const user = Object.assign({}, { id, name, linked_in, birthdate: birthdateDate, expertise, phone, share_email, preferences });
+    const user = Object.assign({}, { id, name, linked_in, birthdate: birthdateDate, phone, share_email, preferences });
     this.props.updateUser(user);
     this.props.editMintro(false);
   }
@@ -160,14 +159,6 @@ class UserForm extends React.Component {
                   <input type="text"
                     value={this.state.from}
                     onChange={this.update('from')}
-                  />
-                </label>
-              </div>
-              <div>
-                <label>Industry/Expertise:
-                  <input type="text"
-                    value={this.state.expertise}
-                    onChange={this.update('expertise')}
                   />
                 </label>
               </div>
@@ -237,6 +228,28 @@ class UserForm extends React.Component {
               <div>
                 <label>
                   <div>
+                    What is your biggest aspiration?
+              </div>
+                  <input type="text"
+                    value={this.state.about_me['aspiration']}
+                    onChange={this.updateAboutMe('aspiration')}
+                  />
+                </label>
+              </div>
+              <div>
+                <label>
+                  <div>
+                    What are you proud of that you haven’t told many people about?
+              </div>
+                  <input type="text"
+                    value={this.state.about_me['proud']}
+                    onChange={this.updateAboutMe('proud')}
+                  />
+                </label>
+              </div>
+              <div>
+                <label>
+                  <div>
                     If someone gave you enough money to start a business – no strings attached – what kind of business would you start and why?
               </div>
                   <input type="text"
@@ -248,33 +261,11 @@ class UserForm extends React.Component {
               <div>
                 <label>
                   <div>
-                    What is one thing you love about yourself and one thing you wish you could change?
+                    What are you interested in learning about your classmates this semester?
               </div>
                   <input type="text"
-                    value={this.state.about_me['change']}
-                    onChange={this.updateAboutMe('change')}
-                  />
-                </label>
-              </div>
-              <div>
-                <label>
-                  <div>
-                    If you could invite three people to dinner, living or dead, who would they be? Why?
-              </div>
-                  <input type="text"
-                    value={this.state.about_me['dinner']}
-                    onChange={this.updateAboutMe('dinner')}
-                  />
-                </label>
-              </div>
-              <div>
-                <label>
-                  <div>
-                    What was the most pivotal point in your life?
-              </div>
-                  <input type="text"
-                    value={this.state.about_me['pivotal']}
-                    onChange={this.updateAboutMe('pivotal')}
+                    value={this.state.about_me['classmates']}
+                    onChange={this.updateAboutMe('classmates')}
                   />
                 </label>
               </div>
@@ -317,7 +308,7 @@ class UserForm extends React.Component {
                   </div>
                 </div>
                 <div className="top-5">
-                  b. Books
+                  b. Books or Games
               <div className="flex flex-end">
                     <div className="top-5-input">i</div><input type="text"
                       value={this.state.books['1']}
