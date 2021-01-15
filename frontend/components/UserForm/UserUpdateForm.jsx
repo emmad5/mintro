@@ -29,9 +29,9 @@ class UserForm extends React.Component {
       },
       about_me: {
         'career': props.currentUser.preferences.about_me['career'] || '',
-        'change': props.currentUser.preferences.about_me['aspiration'] || '',
-        'dinner': props.currentUser.preferences.about_me['proud'] || '',
-        'pivotal': props.currentUser.preferences.about_me['classmates'] || '',
+        'aspiration': props.currentUser.preferences.about_me['aspiration'] || '',
+        'proud': props.currentUser.preferences.about_me['proud'] || '',
+        'classmates': props.currentUser.preferences.about_me['classmates'] || '',
       },
       movies: {
         '1': props.currentUser.preferences.movies[1] || '',
