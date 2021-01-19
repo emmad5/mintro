@@ -13,7 +13,7 @@ class UserForm extends React.Component {
       name: props.currentUser.name || '',
       linked_in: props.currentUser.linked_in || '',
       pronoun: props.currentUser.preferences.pronoun || '',
-      from: props.currentUser.from || '',
+      from: props.currentUser.preferences.from || '',
       birthdate: birthdate,
       phone: props.currentUser.phone || '',
       personal: props.currentUser.preferences.personal || '',
@@ -118,7 +118,9 @@ class UserForm extends React.Component {
     const birthdateDate = new Date(birthdate)
     const preferences = Object.assign({}, { activities, about_me, movies, books, eats, from, pronoun, personal });
     const user = Object.assign({}, { id, name, linked_in, birthdate: birthdateDate, phone, share_email, preferences });
-    this.props.updateUser(user);
+    this.props.updateUser(user).then(res => {
+      window.location.reload();
+    });
     this.props.editMintro(false);
   }
 

@@ -1,7 +1,6 @@
 import React from "react"
 import { fetchUsers } from "../../util/api"
 import AboutMe from "./AboutMe"
-import { Link } from 'react-router-dom';
 
 class Profile extends React.Component {
   constructor(props) {
