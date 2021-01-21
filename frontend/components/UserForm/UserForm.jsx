@@ -19,9 +19,6 @@ class UserForm extends React.Component {
         '3': '',
         '4': '',
         '5': '',
-        '6': '',
-        '7': '',
-        '8': '',
       },
       about_me: {
         'career': '',
@@ -165,7 +162,7 @@ class UserForm extends React.Component {
               </div>
             </div>
             <div className="section pa-24">
-              <label><div className="pb-12">2. List up to eight activities you enjoy</div>
+              <label><div className="pb-12">2. List up to five activities you enjoy</div>
               <div className="flex">
               <div className="pr-8">a</div>
               <input type="text"
@@ -199,27 +196,6 @@ class UserForm extends React.Component {
               <input type="text"
                 value={this.state.activities['5']}
                 onChange={this.updateActivities('5')}
-              /> 
-              </div>
-              <div className="flex">
-              <div className="pr-8">f</div>
-              <input type="text"
-                value={this.state.activities['6']}
-                onChange={this.updateActivities('6')}
-              /> 
-              </div>
-              <div className="flex">
-              <div className="pr-8">g</div>
-              <input type="text"
-                value={this.state.activities['7']}
-                onChange={this.updateActivities('7')}
-              /> 
-              </div>
-              <div className="flex">
-              <div className="pr-8">h</div>
-              <input type="text"
-                value={this.state.activities['8']}
-                onChange={this.updateActivities('8')}
               /> 
               </div>
             </label>

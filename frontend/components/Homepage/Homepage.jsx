@@ -27,7 +27,7 @@ const Homepage = ({ currentUser, logout, updateUser, createGroup, groups }) => {
   return (
     <div>
       <div className="flex justify-end"><button className="logout" onClick={logout}>Log Out</button></div>
-      <h1 className="welcome-header">Mintro</h1>
+      <h1 className="welcome-header">Mintro&trade;</h1>
       <h1 className="welcome-subheader">introductions that stick</h1>
       {personalProfile()}
     </div>
