@@ -89,12 +89,6 @@ class UserForm extends React.Component {
     }
   }
 
-  updatePersonal(e) {
-    const { personal } = this.state
-    personal = (e.currentTarget.value)
-    this.setState({ personal })
-  }
-
   updateTopFive(field) {
     return (e) => {
       const { top_fives } = this.state
@@ -382,7 +376,7 @@ class UserForm extends React.Component {
               <label>Other (Instagram/Facebook/Personal Website):
               <input type="text"
                 value={this.state.personal}
-                onChange={this.updatePersonal}
+                    onChange={this.update('personal')}
               />
             </label>
               </div>

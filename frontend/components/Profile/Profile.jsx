@@ -1,5 +1,5 @@
 import React from "react"
-import { fetchUsers } from "../../util/api"
+import { fetchUsers, fetchGroups } from "../../util/api"
 import AboutMe from "./AboutMe"
 
 class Profile extends React.Component {
@@ -7,6 +7,7 @@ class Profile extends React.Component {
     super(props)
     this.state = {
       users: [],
+      group: null,
       userProfile: null
     }
   }
@@ -15,6 +16,9 @@ class Profile extends React.Component {
     const group_id = this.props.currentUser.group_id
     fetchUsers(group_id).then(users => {
       this.setState({ users })
+    })
+    fetchGroups().then(groups => {
+      this.setState({ group: groups[group_id]?.name})
     })
   }
 
@@ -48,6 +52,7 @@ class Profile extends React.Component {
     }
     return <div className="profile flex">
       <div className="user-list pa-24">
+        <div className="class-members">{this.state.group}</div>
         <div className="class-members">Class Members:</div>
         {this.renderUsers()}
       </div>

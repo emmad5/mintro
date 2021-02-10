@@ -58,6 +58,10 @@
   padding-bottom: 24px;
 }
 
+.pa-24 {
+  padding: 24px;
+}
+
 .pr-8 {
   padding-right: 8px;
 }
@@ -112,4 +116,9 @@
 
 .font-18 {
   font-size: 18px;
+}
+
+.grey-small {
+  color: gray;
+  font-size: small;
 }
