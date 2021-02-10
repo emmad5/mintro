@@ -30,7 +30,7 @@ const Homepage = ({ currentUser, logout, updateUser, createGroup, groups }) => {
       <h1 className="welcome-header">Mintro&trade;</h1>
       <h1 className="welcome-subheader">introductions that stick</h1>
       {personalProfile()}
-      <div className="flex justify-end pa-24 grey-small">Questions or Feedback? email&nbsp;<a href={"mailto: aarondouglasevans@gmail.com"}>aarondouglasevans@gmail.coms</a></div>
+      <div className="flex justify-end pa-24 grey-small">Questions or Feedback? email&nbsp;<a href={"mailto: aarondouglasevans@gmail.com"}>aarondouglasevans@gmail.com</a></div>
     </div>
   )
 };
