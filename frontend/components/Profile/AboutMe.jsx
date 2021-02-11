@@ -48,6 +48,8 @@ const AboutMe = (props) => {
       <div className="pb-12">{about_me.career}</div></div>}
       {about_me.classmates && <div><div className="about-me-subheader">What are you interested in learning about your classmates this semester?</div>
       <div className="pb-12">{about_me.classmates}</div></div>}
+      {about_me.friends && <div><div className="about-me-subheader">We will be friends if...</div>
+      <div className="pb-12">{about_me.friends}</div></div>}
     </div>
     <div className="pt-24">
       <div className="about-me-header">Three 	&#8220;Top 5’s&#8221;</div>

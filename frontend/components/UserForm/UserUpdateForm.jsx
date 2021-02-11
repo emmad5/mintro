@@ -29,6 +29,7 @@ class UserForm extends React.Component {
         'aspiration': props.currentUser.preferences.about_me['aspiration'] || '',
         'proud': props.currentUser.preferences.about_me['proud'] || '',
         'classmates': props.currentUser.preferences.about_me['classmates'] || '',
+        'friends': props.currentUser.preferences.about_me['friends'] || '',
       },
       movies: {
         '1': props.currentUser.preferences.movies[1] || '',
@@ -244,6 +245,17 @@ class UserForm extends React.Component {
                   <input type="text"
                     value={this.state.about_me['classmates']}
                     onChange={this.updateAboutMe('classmates')}
+                  />
+                </label>
+              </div>
+              <div>
+                <label>
+                  <div>
+                    We will be friends if
+              </div>
+                  <input type="text"
+                    value={this.state.about_me['friends']}
+                    onChange={this.updateAboutMe('friends')}
                   />
                 </label>
               </div>
